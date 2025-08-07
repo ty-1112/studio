@@ -1,0 +1,171 @@
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { submitContactForm } from "@/app/contact/actions";
+import { useLanguage } from "@/context/language-context";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
+
+const translations = {
+    en: {
+        name: "Name",
+        namePlaceholder: "Enter your name",
+        email: "Email",
+        emailPlaceholder: "Enter your email address",
+        subject: "Subject",
+        subjectPlaceholder: "What is this about?",
+        message: "Message",
+        messagePlaceholder: "Tell us more...",
+        submit: "Send Message",
+        submitting: "Sending...",
+    },
+    ar: {
+        name: "الاسم",
+        namePlaceholder: "ادخل اسمك",
+        email: "البريد الإلكتروني",
+        emailPlaceholder: "ادخل عنوان بريدك الإلكتروني",
+        subject: "الموضوع",
+        subjectPlaceholder: "عن ماذا يدور هذا؟",
+        message: "الرسالة",
+        messagePlaceholder: "أخبرنا المزيد...",
+        submit: "إرسال الرسالة",
+        submitting: "جارٍ الإرسال...",
+    }
+}
+
+const formSchemaEn = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+});
+
+const formSchemaAr = z.object({
+  name: z.string().min(2, { message: "يجب أن يتكون الاسم من حرفين على الأقل." }),
+  email: z.string().email({ message: "الرجاء إدخال عنوان بريد إلكتروني صالح." }),
+  subject: z.string().min(5, { message: "يجب أن يتكون الموضوع من 5 أحرف على الأقل." }),
+  message: z.string().min(10, { message: "يجب أن تتكون الرسالة من 10 أحرف على الأقل." }),
+});
+
+
+export function ContactForm() {
+    const { language, t } = useLanguage();
+    const T = t(translations);
+    const { toast } = useToast();
+    const [isLoading, setIsLoading] = useState(false);
+    
+    const formSchema = language === 'ar' ? formSchemaAr : formSchemaEn;
+
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        },
+    });
+
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsLoading(true);
+        const result = await submitContactForm(values, language);
+        setIsLoading(false);
+
+        if (result.success) {
+            toast({
+                title: "Success",
+                description: result.message,
+            });
+            form.reset();
+        } else {
+            toast({
+                variant: "destructive",
+                title: "Error",
+                description: result.message,
+            });
+        }
+    }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{T.name}</FormLabel>
+              <FormControl>
+                <Input placeholder={T.namePlaceholder} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{T.email}</FormLabel>
+              <FormControl>
+                <Input placeholder={T.emailPlaceholder} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="subject"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{T.subject}</FormLabel>
+              <FormControl>
+                <Input placeholder={T.subjectPlaceholder} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{T.message}</FormLabel>
+              <FormControl>
+                <Textarea placeholder={T.messagePlaceholder} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="w-full" disabled={isLoading}>
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              {T.submitting}
+            </>
+          ) : (
+            T.submit
+          )}
+        </Button>
+      </form>
+    </Form>
+  );
+}
