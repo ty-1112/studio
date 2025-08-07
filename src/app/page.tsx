@@ -14,10 +14,10 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    BugMed Labs: Pioneering Medical Entomology
+                    Accelerating Drug Discovery with AI
                   </h1>
                   <p className="max-w-[600px] text-lg md:text-xl">
-                    At the forefront of vector-borne disease research, we provide cutting-edge laboratory services to protect global health.
+                    BugMed Labs operates an advanced AI-powered hypothesis generation engine that decodes complex biological data to accelerate drug discovery. By integrating multi-modal data from unique sources, including genomics and natural bioprospecting, our platform identifies novel therapeutic pathways and de-risks development, creating a new paradigm for discovering cures.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -35,7 +35,7 @@ export default function Home() {
                 width={600}
                 height={400}
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full"
-                data-ai-hint="microscope lab"
+                data-ai-hint="abstract biology"
               />
             </div>
           </div>
