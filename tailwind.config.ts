@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-alegreya)', 'Tajawal', 'sans-serif'],
-        headline: ['var(--font-alegreya)', 'Tajawal', 'sans-serif'],
+        body: ['Tajawal', 'sans-serif'],
+        headline: ['Tajawal', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
