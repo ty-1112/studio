@@ -15,6 +15,7 @@ const navLinks = [
   { href: '/team', label: 'Team' },
   { href: '/summarizer', label: 'Summarizer' },
   { href: '/coverage', label: 'Coverage' },
+  { href: '/ip', label: 'IP' },
   { href: '/contact', label: 'Contact' },
 ];
 
