@@ -14,15 +14,15 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    Pioneering Medical Entomology
+                    AI-Powered Hypothesis Generation for Drug Discovery
                   </h1>
                   <p className="max-w-[600px] text-lg md:text-xl">
-                    BugMed Labs is a premier research and diagnostics laboratory dedicated to combating vector-borne diseases worldwide.
+                    BugMed Labs operates an advanced AI-powered hypothesis generation engine that decodes complex biological data to accelerate drug discovery. By integrating multi-modal data from unique sources, including genomics and natural bioprospecting, our platform identifies novel therapeutic pathways and de-risks development, creating a new paradigm for discovering cures.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button asChild size="lg" variant="secondary">
-                    <Link href="/services">Our Services</Link>
+                    <Link href="/services">Our Platform</Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
                     <Link href="/contact">Contact Us</Link>
