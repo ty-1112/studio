@@ -1,8 +1,9 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,38 +15,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/app/contact/actions";
-import { useLanguage } from "@/context/language-context";
-import { useState } from "react";
+import { useState, useTransition, useEffect } from "react";
 import { Loader2 } from "lucide-react";
-
-const translations = {
-    en: {
-        name: "Name",
-        namePlaceholder: "Enter your name",
-        email: "Email",
-        emailPlaceholder: "Enter your email address",
-        subject: "Subject",
-        subjectPlaceholder: "What is this about?",
-        message: "Message",
-        messagePlaceholder: "Tell us more...",
-        submit: "Send Message",
-        submitting: "Sending...",
-    },
-    ar: {
-        name: "الاسم",
-        namePlaceholder: "ادخل اسمك",
-        email: "البريد الإلكتروني",
-        emailPlaceholder: "ادخل عنوان بريدك الإلكتروني",
-        subject: "الموضوع",
-        subjectPlaceholder: "عن ماذا يدور هذا؟",
-        message: "الرسالة",
-        messagePlaceholder: "أخبرنا المزيد...",
-        submit: "إرسال الرسالة",
-        submitting: "جارٍ الإرسال...",
-    }
-}
+import { useLanguage } from "@/context/language-context";
 
 const formSchemaEn = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -61,44 +34,82 @@ const formSchemaAr = z.object({
   message: z.string().min(10, { message: "يجب أن تتكون الرسالة من 10 أحرف على الأقل." }),
 });
 
+const translations = {
+  en: {
+    fullName: "Full Name",
+    namePlaceholder: "John Doe",
+    email: "Email",
+    emailPlaceholder: "your.email@example.com",
+    subject: "Subject",
+    subjectPlaceholder: "Partnership Inquiry",
+    message: "Message",
+    messagePlaceholder: "Tell us how we can help",
+    submitButton: "Send Message",
+    successTitle: "Success!",
+    errorTitle: "Something went wrong.",
+    loading: "Sending...",
+  },
+  ar: {
+    fullName: "الاسم الكامل",
+    namePlaceholder: "تامر ياسر",
+    email: "البريد الإلكتروني",
+    emailPlaceholder: "your.email@example.com",
+    subject: "الموضوع",
+    subjectPlaceholder: "استفسار عن شراكة",
+    message: "الرسالة",
+    messagePlaceholder: "أخبرنا كيف يمكننا المساعدة",
+    submitButton: "إرسال الرسالة",
+    successTitle: "نجاح!",
+    errorTitle: "حدث خطأ ما.",
+    loading: "جار الإرسال...",
+  }
+}
 
 export function ContactForm() {
-    const { language, t } = useLanguage();
-    const T = t(translations);
-    const { toast } = useToast();
-    const [isLoading, setIsLoading] = useState(false);
-    
-    const formSchema = language === 'ar' ? formSchemaAr : formSchemaEn;
+  const { toast } = useToast();
+  const [isPending, startTransition] = useTransition();
+  const { language, t } = useLanguage();
+  
+  const T = t(translations);
+  const formSchema = language === 'ar' ? formSchemaAr : formSchemaEn;
+  type FormData = z.infer<typeof formSchema>;
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-        },
-    });
-
-    async function onSubmit(values: z.infer<typeof formSchema>) {
-        setIsLoading(true);
-        const result = await submitContactForm(values, language);
-        setIsLoading(false);
-
-        if (result.success) {
-            toast({
-                title: "Success",
-                description: result.message,
-            });
-            form.reset();
-        } else {
-            toast({
-                variant: "destructive",
-                title: "Error",
-                description: result.message,
-            });
-        }
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    context: {
+        language
     }
+  });
+
+  useEffect(() => {
+    form.reset();
+  }, [language, form]);
+
+
+  function onSubmit(data: FormData) {
+    startTransition(async () => {
+      const result = await submitContactForm(data, language);
+      if (result.success) {
+        toast({
+          title: T.successTitle,
+          description: result.message,
+        });
+        form.reset();
+      } else {
+        toast({
+          variant: "destructive",
+          title: T.errorTitle,
+          description: result.message,
+        });
+      }
+    });
+  }
 
   return (
     <Form {...form}>
@@ -108,7 +119,7 @@ export function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{T.name}</FormLabel>
+              <FormLabel>{T.fullName}</FormLabel>
               <FormControl>
                 <Input placeholder={T.namePlaceholder} {...field} />
               </FormControl>
@@ -149,21 +160,26 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>{T.message}</FormLabel>
               <FormControl>
-                <Textarea placeholder={T.messagePlaceholder} {...field} />
+                <Textarea
+                  placeholder={T.messagePlaceholder}
+                  className="min-h-[120px]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              {T.submitting}
-            </>
+        <Button type="submit" className="w-full" disabled={isPending}>
+          {isPending ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                {T.loading}
+              </>
           ) : (
-            T.submit
-          )}
+             T.submitButton
+          )
+          }
         </Button>
       </form>
     </Form>
