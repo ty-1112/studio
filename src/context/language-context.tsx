@@ -20,8 +20,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = dir;
-    // The font family is handled by Tailwind CSS config and the main layout file.
-    // No need to add classes to the body here.
+    if (language === 'ar') {
+      document.body.classList.add('font-arabic');
+      document.body.classList.remove('font-body');
+    } else {
+      document.body.classList.add('font-body');
+      document.body.classList.remove('font-arabic');
+    }
   }, [language, dir]);
 
   const t = (translations: any) => {
