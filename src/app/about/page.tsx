@@ -125,7 +125,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="bg-secondary/30 rounded-lg p-8 md:p-12 grid md:grid-cols-3 gap-8 items-center">
             <div className="md:col-span-1">
-              <Image src="https://placehold.co/400x400.png" alt="Dr. Tamer Yasser Abdulmughni, Founder of BugMed Labs" width={400} height={400} className="rounded-full mx-auto shadow-lg" data-ai-hint="founder portrait" />
+              <Image src="/founder.jpg" alt="Dr. Tamer Yasser Abdulmughni, Founder of BugMed Labs" width={400} height={400} className="rounded-full mx-auto shadow-lg" data-ai-hint="founder portrait" />
             </div>
             <div className="md:col-span-2 text-center md:text-left">
               <h2 className="text-3xl font-bold text-cyan-400">{T.meetFounder}</h2>
@@ -141,5 +141,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-    

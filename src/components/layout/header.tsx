@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -62,7 +63,7 @@ export function Header() {
     <header className="fixed top-0 z-50 w-full bg-background/80 backdrop-blur-sm transition-all duration-300">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-          <Image src="/Logo.png" alt="BugMed Labs Logo" width={32} height={32} className="h-8 w-8 text-primary" data-ai-hint="logo bug" />
+          <Image src="/logo.png" alt="BugMed Labs Logo" width={32} height={32} className="h-8 w-8 text-primary" data-ai-hint="logo bug" />
           <span className="text-xl font-bold text-primary">BugMed Labs</span>
         </Link>
 
@@ -124,7 +125,7 @@ export function Header() {
                   <div className="flex flex-col h-full">
                     <div className="flex justify-between items-center mb-8">
                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                          <Image src="/Logo.png" alt="BugMed Labs Logo" width={28} height={28} data-ai-hint="logo bug"/>
+                          <Image src="/logo.png" alt="BugMed Labs Logo" width={28} height={28} data-ai-hint="logo bug"/>
                           <span className="text-lg font-bold text-primary">BugMed Labs</span>
                         </Link>
                       <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>

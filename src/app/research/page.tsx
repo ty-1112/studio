@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -59,7 +60,7 @@ export default function ResearchPage() {
                             </div>
                              <div className="relative min-h-[400px] bg-black/20 flex items-center justify-center p-4">
                                 <Image 
-                                    src="/diabetes%20type%201.png"
+                                    src="/diabetes 1.jpg"
                                     alt="A child testing their blood sugar for diabetes" 
                                     fill
                                     className="object-contain w-full h-full"

@@ -18,21 +18,21 @@ const translations = {
       {
         id: 'cs-02',
         title: 'Re-engineering Recovery: A New Path for Chronic Spinal Cord Injury',
-        image: '/spinal%20cord%20injury.png',
+        image: '/spinal.jpg',
         imageHint: 'neuron synapse',
         link: "/contact"
       },
       {
         id: 'cs-03',
         title: 'AI-Generated Asset: A New Paradigm for Type 1 Diabetes',
-        image: '/diabetes%20type%201.png',
+        image: '/diabetes 1.jpg',
         imageHint: 'child diabetes care',
         link: "/research"
       },
       {
         id: 'cs-04',
         title: 'Unlocking New Potential: An Established Antibiotic Reimagined for Type 2 Diabetes',
-        image: '/diabetes%20type%202.png',
+        image: '/diabetes 2.jpg',
         imageHint: 'gut microbiome illustration',
         link: "/contact"
       },
@@ -47,21 +47,21 @@ const translations = {
       {
         id: 'cs-02',
         title: 'إعادة هندسة التعافي: مسار جديد لإصابات الحبل الشوكي المزمنة',
-        image: '/spinal%20cord%20injury.png',
+        image: '/spinal.jpg',
         imageHint: 'neuron synapse',
         link: "/contact"
       },
       {
         id: 'cs-03',
         title: 'أصل مولّد بالذكاء الاصطناعي: نموذج جديد لمرض السكري من النوع الأول',
-        image: '/diabetes%20type%201.png',
+        image: '/diabetes 1.jpg',
         imageHint: 'child diabetes care',
         link: "/research"
       },
       {
         id: 'cs-04',
         title: 'إطلاق إمكانات جديدة: إعادة تصور مضاد حيوي معروف لمرض السكري من النوع الثاني',
-        image: '/diabetes%20type%202.png',
+        image: '/diabetes 2.jpg',
         imageHint: 'gut microbiome illustration',
         link: "/contact"
       },

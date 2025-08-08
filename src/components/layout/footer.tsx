@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -58,7 +59,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="flex flex-col items-start col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Image src="https://placehold.co/24x24.png" alt="BugMed Labs Logo" width={24} height={24} className="h-6 w-6 text-primary" data-ai-hint="logo bug" />
+              <Image src="/logo.png" alt="BugMed Labs Logo" width={24} height={24} className="h-6 w-6 text-primary" data-ai-hint="logo bug" />
               <span className="text-lg font-bold text-primary">BugMed Labs</span>
             </Link>
             <div>
