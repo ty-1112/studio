@@ -25,7 +25,7 @@ const translations = {
       {
         id: 'cs-03',
         title: 'AI-Generated Asset: A New Paradigm for Type 1 Diabetes',
-        image: '/diabetes 1.jpg',
+        image: '/Type1.jpg',
         imageHint: 'child diabetes care',
         link: "/research"
       },
@@ -54,7 +54,7 @@ const translations = {
       {
         id: 'cs-03',
         title: 'أصل مولّد بالذكاء الاصطناعي: نموذج جديد لمرض السكري من النوع الأول',
-        image: '/diabetes 1.jpg',
+        image: '/Type1.jpg',
         imageHint: 'child diabetes care',
         link: "/research"
       },

@@ -60,7 +60,7 @@ export default function ResearchPage() {
                             </div>
                              <div className="relative min-h-[400px] bg-black/20 flex items-center justify-center p-4">
                                 <Image 
-                                    src="/diabetes 1.jpg"
+                                    src="/Type1.jpg"
                                     alt="A child testing their blood sugar for diabetes" 
                                     fill
                                     className="object-contain w-full h-full"
