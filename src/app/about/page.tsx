@@ -75,7 +75,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="order-1 md:order-2">
-              <Image src="https://placehold.co/600x450.png" alt={T.ourMission} width={600} height={450} className="rounded-lg shadow-lg" data-ai-hint="mission biology" />
+              <Image src="/logo.png" alt={T.ourMission} width={600} height={450} className="rounded-lg shadow-lg" data-ai-hint="logo bug" />
             </div>
           </div>
         </div>
