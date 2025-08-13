@@ -64,7 +64,7 @@ export default function Home() {
           playsInline
           className="absolute z-0 w-auto min-w-full min-h-full max-w-none opacity-20"
         >
-          <source src="https://storage.googleapis.com/studio-hosting-assets/network-video.mp4" type="video/mp4" />
+          <source src="https://storage.googleapis.com/studio-hosting-assets/plexus-white-orange.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
