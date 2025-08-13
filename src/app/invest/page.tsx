@@ -54,7 +54,7 @@ export default function InvestPage() {
       <section className="pb-20 md:pb-32 flex justify-center pt-10">
         <div className="container mx-auto px-4 md:px-6 flex justify-center">
              <iframe 
-                src="https://nowpayments.io/embeds/payment-widget?iid=5134481815" 
+                src="https://nowpayments.io/embeds/payment-widget?iid=5134626156" 
                 width="410" 
                 height="696" 
                 frameBorder="0" 
