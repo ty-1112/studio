@@ -18,6 +18,7 @@ const translations = {
       {
         id: 'cs-02',
         title: 'Re-engineering Recovery: A New Path for Chronic Spinal Cord Injury',
+        description: 'Our platform identified a novel neuro-regenerative pathway by analyzing genomic data from extremophile organisms, leading to a new therapeutic hypothesis for nerve repair.',
         image: '/spinal.jpg',
         imageHint: 'neuron synapse',
         link: "/contact"
@@ -25,13 +26,15 @@ const translations = {
       {
         id: 'cs-03',
         title: 'AI-Generated Asset: A New Paradigm for Type 1 Diabetes',
+        description: 'By modeling the complex interplay between the immune system and metabolic pathways, our AI generated a novel molecule designed to protect insulin-producing cells.',
         image: '/Type1.jpg',
         imageHint: 'child diabetes care',
         link: "/research"
       },
       {
         id: 'cs-04',
-        title: 'Unlocking New Potential: An Established Antibiotic Reimagined for Type 2 Diabetes',
+        title: 'Unlocking New Potential: An Antibiotic Reimagined for Type 2 Diabetes',
+        description: 'Counter-intuitively, our AI found that a specific antibiotic, at a targeted dose, can selectively modulate the gut microbiome and leverage its anti-inflammatory properties to improve insulin sensitivity.',
         image: '/diabetes 2.jpg',
         imageHint: 'gut microbiome illustration',
         link: "/contact"
@@ -47,6 +50,7 @@ const translations = {
       {
         id: 'cs-02',
         title: 'إعادة هندسة التعافي: مسار جديد لإصابات الحبل الشوكي المزمنة',
+        description: 'حددت منصتنا مسارًا عصبيًا جديدًا لتجديد الأعصاب من خلال تحليل البيانات الجينومية للكائنات المتطرفة، مما أدى إلى فرضية علاجية جديدة لإصلاح الأعصاب.',
         image: '/spinal.jpg',
         imageHint: 'neuron synapse',
         link: "/contact"
@@ -54,13 +58,15 @@ const translations = {
       {
         id: 'cs-03',
         title: 'أصل مولّد بالذكاء الاصطناعي: نموذج جديد لمرض السكري من النوع الأول',
+        description: 'من خلال نمذجة التفاعل المعقد بين جهاز المناعة والمسارات الأيضية، ولّد الذكاء الاصطناعي لدينا جزيئًا جديدًا مصممًا لحماية الخلايا المنتجة للأنسولين.',
         image: '/Type1.jpg',
         imageHint: 'child diabetes care',
         link: "/research"
       },
       {
         id: 'cs-04',
-        title: 'إطلاق إمكانات جديدة: إعادة تصور مضاد حيوي معروف لمرض السكري من النوع الثاني',
+        title: 'إطلاق إمكانات جديدة: إعادة تصور مضاد حيوي لمرض السكري من النوع الثاني',
+        description: 'بشكل غير متوقع، وجدت منصة الذكاء الاصطناعي أن مضادًا حيويًا معينًا، بجرعة مستهدفة، يمكنه تعديل ميكروبيوم الأمعاء بشكل انتقائي والاستفادة من خصائصه المضادة للالتهابات لتحسين حساسية الأنسولين.',
         image: '/diabetes 2.jpg',
         imageHint: 'gut microbiome illustration',
         link: "/contact"
@@ -97,6 +103,7 @@ export default function CaseStudiesPage() {
                   <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-center">
                     <CardHeader>
                       <CardTitle className="text-2xl text-cyan-400">{study.title}</CardTitle>
+                      <CardDescription className="text-neutral-300 pt-2">{study.description}</CardDescription>
                     </CardHeader>
                     <CardFooter>
                        <Link href={study.link} className="text-cyan-400 hover:underline flex items-center font-semibold">
