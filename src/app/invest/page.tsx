@@ -10,10 +10,10 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 const translations = {
   en: {
     title: "Invest in The Future of Medicine",
-    subtitle: "Join us in transforming computational discoveries into tangible therapeutic assets. We offer strategic opportunities, not just transactions.",
-    contactForInvestment: "To discuss investment opportunities, please contact us directly.",
+    subtitle: "We offer strategic partnerships to translate our computational discoveries into tangible, high-value therapeutic assets.",
+    contactForInvestment: "To discuss investment or partnership opportunities, please contact us directly.",
     contactUs: "Contact Us",
-    investmentThesis: "Our Investment Thesis: Capital-Efficient Biotech",
+    investmentThesis: "Our Investment Thesis: De-risked, Data-Driven, Capital-Efficient Biotech",
     
     seedStageTitle: "Seed & Pre-Seed Stage",
     seedStageDescription: "This capital is deployed to validate our most promising AI-generated hypotheses. Funds are allocated to contract research organizations (CROs) to perform the crucial in-vitro proof-of-concept, generating high-value, lab-validated intellectual property.",
@@ -21,16 +21,15 @@ const translations = {
     venturePartnershipTitle: "Venture & Corporate Partnership",
     venturePartnershipDescription: "Co-develop a full therapeutic program. We bring de-risked, data-driven assets; you bring the scale and expertise to accelerate the path to clinical trials and market entry.",
 
-    whyCryptoTitle: "A Note on Current Funding Mechanisms",
-    whyCryptoDescription: "Our main office is in Yemen, facing temporary banking restrictions. For initial support and seed-stage contributions, we utilize secure cryptocurrency platforms. For venture-level partnerships, we are establishing international corporate structures to facilitate standard investment vehicles. We appreciate your understanding as we navigate this phase."
-
+    whyCryptoTitle: "A Note on Funding Mechanisms",
+    whyCryptoDescription: "Our main office is in Yemen, which presents temporary challenges for traditional banking. For strategic venture-level partnerships, we are establishing international corporate structures to facilitate standard investment vehicles. For initial seed-stage contributions to validate specific hypotheses, we can facilitate secure transactions via cryptocurrency following a direct discussion. We appreciate your partnership as we navigate this phase."
   },
   ar: {
     title: "استثمر في مستقبل الطب",
-    subtitle: "شاركنا في تحويل الاكتشافات الحاسوبية إلى أصول علاجية ملموسة. نحن نقدم فرصًا استراتيجية، وليس مجرد معاملات.",
-    contactForInvestment: "لمناقشة فرص الاستثمار، يرجى التواصل معنا مباشرة.",
+    subtitle: "نحن نقدم شراكات استراتيجية لترجمة اكتشافاتنا الحاسوبية إلى أصول علاجية ملموسة وعالية القيمة.",
+    contactForInvestment: "لمناقشة فرص الاستثمار أو الشراكة، يرجى التواصل معنا مباشرة.",
     contactUs: "تواصل معنا",
-    investmentThesis: "أطروحتنا الاستثمارية: تكنولوجيا حيوية عالية الكفاءة في رأس المال",
+    investmentThesis: "أطروحتنا الاستثمارية: تكنولوجيا حيوية عالية الكفاءة في رأس المال، مُزالة المخاطر ومدفوعة بالبيانات",
 
     seedStageTitle: "مرحلة التمويل الأولي (Seed)",
     seedStageDescription: "يتم استخدام هذا التمويل للتحقق من صحة فرضياتنا الواعدة التي يولدها الذكاء الاصطناعي. تُخصص الأموال لمنظمات الأبحاث التعاقدية (CROs) لإجراء إثبات المفهوم الأساسي في المختبر (in-vitro)، مما يولد ملكية فكرية عالية القيمة ومُثبتة معمليًا.",
@@ -38,8 +37,8 @@ const translations = {
     venturePartnershipTitle: "الشراكات الاستثمارية والمؤسسية",
     venturePartnershipDescription: "شارك في تطوير برنامج علاجي متكامل. نحن نقدم أصولاً مُزالة المخاطر ومدفوعة بالبيانات؛ وأنتم تجلبون الخبرة والنطاق لتسريع المسار نحو التجارب السريرية ودخول السوق.",
 
-    whyCryptoTitle: "ملاحظة حول آليات التمويل الحالية",
-    whyCryptoDescription: "يقع مكتبنا الرئيسي في اليمن، مما يفرض قيودًا مصرفية مؤقتة. للدعم الأولي ومساهمات مرحلة التمويل الأولي، نستخدم منصات عملات مشفرة آمنة. بالنسبة للشراكات على مستوى رأس المال الاستثماري، نعمل على تأسيس هياكل شركات دولية لتسهيل أدوات الاستثمار القياسية. نقدر تفهمكم بينما نتجاوز هذه المرحلة."
+    whyCryptoTitle: "ملاحظة حول آليات التمويل",
+    whyCryptoDescription: "يقع مكتبنا الرئيسي في اليمن، مما يفرض تحديات مؤقتة على الخدمات المصرفية التقليدية. بالنسبة للشراكات الاستثمارية الاستراتيجية، نعمل على تأسيس هياكل شركات دولية لتسهيل أدوات الاستثمار القياسية. بالنسبة لمساهمات مرحلة التمويل الأولي للتحقق من فرضيات محددة، يمكننا تسهيل المعاملات الآمنة عبر العملات المشفرة بعد إجراء مناقشة مباشرة. نقدر شراكتكم بينما نتجاوز هذه المرحلة."
   }
 };
 
