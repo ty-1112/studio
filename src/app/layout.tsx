@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/context/language-context';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'BugMed Labs - Drugs from Nature & AI',
@@ -23,6 +24,17 @@ export default function RootLayout({
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+          {/* Google Analytics */}
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-R2FWGHLJCM"></Script>
+          <Script id="google-analytics">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-R2FWGHLJCM');
+            `}
+          </Script>
         </head>
         <body className="antialiased bg-background">
           <div className="flex flex-col min-h-screen">
