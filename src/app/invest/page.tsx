@@ -1,8 +1,8 @@
 "use client";
 
 import { useLanguage } from '@/context/language-context';
-import { DollarSign, Rocket, TestTube, Handshake, Info } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Rocket, TestTube, Handshake, Info } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -16,7 +16,7 @@ const translations = {
     investmentThesis: "Our Investment Thesis: Capital-Efficient Biotech",
     
     seedStageTitle: "Seed & Pre-Seed Stage",
-    seedStageDescription: "Fuel the initial validation of our most promising AI-generated hypotheses. This stage bridges the gap from in-silico discovery to in-vitro proof-of-concept, generating high-value intellectual property.",
+    seedStageDescription: "This capital is deployed to validate our most promising AI-generated hypotheses. Funds are allocated to contract research organizations (CROs) to perform the crucial in-vitro proof-of-concept, generating high-value, lab-validated intellectual property.",
     
     venturePartnershipTitle: "Venture & Corporate Partnership",
     venturePartnershipDescription: "Co-develop a full therapeutic program. We bring de-risked, data-driven assets; you bring the scale and expertise to accelerate the path to clinical trials and market entry.",
@@ -33,7 +33,7 @@ const translations = {
     investmentThesis: "أطروحتنا الاستثمارية: تكنولوجيا حيوية عالية الكفاءة في رأس المال",
 
     seedStageTitle: "مرحلة التمويل الأولي (Seed)",
-    seedStageDescription: "ادعم التحقق المبدئي من صحة فرضياتنا الواعدة التي يولدها الذكاء الاصطناعي. هذه المرحلة تسد الفجوة بين الاكتشاف الرقمي وإثبات المفهوم في المختبر، مما يولد ملكية فكرية عالية القيمة.",
+    seedStageDescription: "يتم استخدام هذا التمويل للتحقق من صحة فرضياتنا الواعدة التي يولدها الذكاء الاصطناعي. تُخصص الأموال لمنظمات الأبحاث التعاقدية (CROs) لإجراء إثبات المفهوم الأساسي في المختبر (in-vitro)، مما يولد ملكية فكرية عالية القيمة ومُثبتة معمليًا.",
     
     venturePartnershipTitle: "الشراكات الاستثمارية والمؤسسية",
     venturePartnershipDescription: "شارك في تطوير برنامج علاجي متكامل. نحن نقدم أصولاً مُزالة المخاطر ومدفوعة بالبيانات؛ وأنتم تجلبون الخبرة والنطاق لتسريع المسار نحو التجارب السريرية ودخول السوق.",
