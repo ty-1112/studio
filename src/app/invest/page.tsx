@@ -1,21 +1,45 @@
 "use client";
 
 import { useLanguage } from '@/context/language-context';
-import { DollarSign, Info } from 'lucide-react';
+import { DollarSign, Rocket, TestTube, Handshake, Info } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const translations = {
   en: {
     title: "Invest in The Future of Medicine",
-    subtitle: "Your investment fuels the development of next-generation therapeutics and accelerates our mission to bring novel cures to patients worldwide.",
-    whyCryptoTitle: "Why Cryptocurrency?",
-    whyCryptoDescription: "Our main office is located in Yemen, a region currently facing significant banking restrictions due to the ongoing political situation. This makes processing traditional payments like Visa, Mastercard, or PayPal challenging for us at the moment. Cryptocurrencies provide a transparent and accessible way for us to receive support from our global community. We are actively working on establishing international banking to enable traditional payment methods in the near future."
+    subtitle: "Join us in transforming computational discoveries into tangible therapeutic assets. We offer strategic opportunities, not just transactions.",
+    contactForInvestment: "To discuss investment opportunities, please contact us directly.",
+    contactUs: "Contact Us",
+    investmentThesis: "Our Investment Thesis: Capital-Efficient Biotech",
+    
+    seedStageTitle: "Seed & Pre-Seed Stage",
+    seedStageDescription: "Fuel the initial validation of our most promising AI-generated hypotheses. This stage bridges the gap from in-silico discovery to in-vitro proof-of-concept, generating high-value intellectual property.",
+    
+    venturePartnershipTitle: "Venture & Corporate Partnership",
+    venturePartnershipDescription: "Co-develop a full therapeutic program. We bring de-risked, data-driven assets; you bring the scale and expertise to accelerate the path to clinical trials and market entry.",
+
+    whyCryptoTitle: "A Note on Current Funding Mechanisms",
+    whyCryptoDescription: "Our main office is in Yemen, facing temporary banking restrictions. For initial support and seed-stage contributions, we utilize secure cryptocurrency platforms. For venture-level partnerships, we are establishing international corporate structures to facilitate standard investment vehicles. We appreciate your understanding as we navigate this phase."
+
   },
   ar: {
     title: "استثمر في مستقبل الطب",
-    subtitle: "استثمارك يدعم تطوير الجيل القادم من العلاجات ويسرّع مهمتنا في تقديم علاجات مبتكرة للمرضى في جميع أنحاء العالم.",
-    whyCryptoTitle: "لماذا العملات المشفرة؟",
-    whyCryptoDescription: "يقع مكتبنا الرئيسي في اليمن، وهي منطقة تواجه حاليًا قيودًا مصرفية كبيرة بسبب الوضع السياسي الراهن. هذا يجعل معالجة المدفوعات التقليدية مثل فيزا أو ماستركارد أو باي بال صعبة بالنسبة لنا في الوقت الحالي. توفر العملات المشفرة وسيلة شفافة وسهلة للوصول لتلقي الدعم من مجتمعنا العالمي. نحن نعمل بنشاط على تأسيس معاملات مصرفية دولية لتمكين طرق الدفع التقليدية في المستقبل القريب."
+    subtitle: "شاركنا في تحويل الاكتشافات الحاسوبية إلى أصول علاجية ملموسة. نحن نقدم فرصًا استراتيجية، وليس مجرد معاملات.",
+    contactForInvestment: "لمناقشة فرص الاستثمار، يرجى التواصل معنا مباشرة.",
+    contactUs: "تواصل معنا",
+    investmentThesis: "أطروحتنا الاستثمارية: تكنولوجيا حيوية عالية الكفاءة في رأس المال",
+
+    seedStageTitle: "مرحلة التمويل الأولي (Seed)",
+    seedStageDescription: "ادعم التحقق المبدئي من صحة فرضياتنا الواعدة التي يولدها الذكاء الاصطناعي. هذه المرحلة تسد الفجوة بين الاكتشاف الرقمي وإثبات المفهوم في المختبر، مما يولد ملكية فكرية عالية القيمة.",
+    
+    venturePartnershipTitle: "الشراكات الاستثمارية والمؤسسية",
+    venturePartnershipDescription: "شارك في تطوير برنامج علاجي متكامل. نحن نقدم أصولاً مُزالة المخاطر ومدفوعة بالبيانات؛ وأنتم تجلبون الخبرة والنطاق لتسريع المسار نحو التجارب السريرية ودخول السوق.",
+
+    whyCryptoTitle: "ملاحظة حول آليات التمويل الحالية",
+    whyCryptoDescription: "يقع مكتبنا الرئيسي في اليمن، مما يفرض قيودًا مصرفية مؤقتة. للدعم الأولي ومساهمات مرحلة التمويل الأولي، نستخدم منصات عملات مشفرة آمنة. بالنسبة للشراكات على مستوى رأس المال الاستثماري، نعمل على تأسيس هياكل شركات دولية لتسهيل أدوات الاستثمار القياسية. نقدر تفهمكم بينما نتجاوز هذه المرحلة."
   }
 };
 
@@ -28,7 +52,7 @@ export default function InvestPage() {
       <section className="py-20 md:py-32 pt-32 md:pt-48">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="flex justify-center items-center mb-6">
-            <DollarSign className="h-12 w-12 text-cyan-400" />
+            <Rocket className="h-12 w-12 text-cyan-400" />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">
             {T.title}
@@ -39,8 +63,46 @@ export default function InvestPage() {
         </div>
       </section>
 
-      <section className="pb-10">
-        <div className="container mx-auto px-4 md:px-6 max-w-2xl">
+      <section className="pb-20 md:pb-24">
+        <div className="container mx-auto px-4 md:px-6">
+           <div className="text-center mb-16">
+             <h2 className="text-3xl md:text-4xl font-bold text-cyan-400">{T.investmentThesis}</h2>
+           </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+             <Card className="bg-secondary/30 border-cyan-400/20 text-center p-6">
+               <CardHeader>
+                 <div className="mx-auto bg-cyan-400/10 rounded-full h-16 w-16 flex items-center justify-center mb-4">
+                    <TestTube className="h-8 w-8 text-cyan-400" />
+                 </div>
+                 <CardTitle className="text-neutral-100">{T.seedStageTitle}</CardTitle>
+               </CardHeader>
+               <CardContent>
+                 <p className="text-neutral-300">{T.seedStageDescription}</p>
+               </CardContent>
+             </Card>
+             <Card className="bg-secondary/30 border-cyan-400/20 text-center p-6">
+               <CardHeader>
+                  <div className="mx-auto bg-cyan-400/10 rounded-full h-16 w-16 flex items-center justify-center mb-4">
+                    <Handshake className="h-8 w-8 text-cyan-400" />
+                 </div>
+                 <CardTitle className="text-neutral-100">{T.venturePartnershipTitle}</CardTitle>
+               </CardHeader>
+               <CardContent>
+                 <p className="text-neutral-300">{T.venturePartnershipDescription}</p>
+               </CardContent>
+             </Card>
+           </div>
+            <div className="text-center mt-16 bg-secondary/20 py-8 px-6 rounded-lg max-w-3xl mx-auto">
+                 <p className="text-xl text-neutral-200 mb-4">{T.contactForInvestment}</p>
+                 <Button asChild size="lg" className="bg-cyan-400 text-background hover:bg-cyan-500">
+                     <Link href="/contact">{T.contactUs}</Link>
+                 </Button>
+            </div>
+        </div>
+      </section>
+
+      <section className="pb-20 md:pb-32">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
             <Alert className="bg-secondary/50 border-cyan-400/20 text-neutral-100">
               <Info className="h-5 w-5 text-cyan-400" />
               <AlertTitle className="font-bold text-cyan-400">{T.whyCryptoTitle}</AlertTitle>
@@ -51,19 +113,6 @@ export default function InvestPage() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-32 flex justify-center pt-10">
-        <div className="container mx-auto px-4 md:px-6 flex justify-center">
-             <iframe 
-                src="https://nowpayments.io/embeds/payment-widget?iid=5134626156" 
-                width="410" 
-                height="696" 
-                frameBorder="0" 
-                scrolling="no" 
-                style={{ overflowY: 'hidden' }}
-            >
-            </iframe>
-        </div>
-      </section>
     </div>
   );
 }
