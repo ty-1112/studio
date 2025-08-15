@@ -5,6 +5,7 @@ import { LanguageProvider } from '@/context/language-context';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'BugMed Labs - Drugs from Nature & AI',
@@ -43,6 +44,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <Toaster />
+          <Analytics />
         </body>
       </html>
     </LanguageProvider>
