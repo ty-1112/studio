@@ -14,7 +14,16 @@ const translations = {
     subtitle: "Explore real-world examples of how our platform is accelerating the future of drug discovery and creating new therapeutic possibilities.",
     learnMore: "Learn more about our capabilities",
     exploreHypothesis: "Explore Our Research",
+    exploreIP: "Explore Our IP",
     studies: [
+      {
+        id: 'cs-01',
+        title: 'Targeted Modulation of Hostile Tissue Microenvironments',
+        description: 'Our platform has outlined a system and method to precisely alter hostile tissue microenvironments, opening a new therapeutic frontier for treating chronic and autoimmune diseases.',
+        image: '/methood.jpg',
+        imageHint: 'cell targeting',
+        link: "/ip"
+      },
       {
         id: 'cs-02',
         title: 'Re-engineering Recovery: A New Path for Chronic Spinal Cord Injury',
@@ -46,7 +55,16 @@ const translations = {
     subtitle: "استكشف أمثلة من العالم الحقيقي لكيفية تسريع منصتنا لمستقبل اكتشاف الأدوية وخلق إمكانيات علاجية جديدة.",
     learnMore: "تعرف على المزيد حول قدراتنا",
     exploreHypothesis: "اكتشف أبحاثنا",
+    exploreIP: "اكتشف ملكيتنا الفكرية",
     studies: [
+      {
+        id: 'cs-01',
+        title: 'التعديل الموجه للبيئات النسيجية الدقيقة المعادية',
+        description: 'حددت منصتنا نظامًا وطريقة لتغيير البيئات النسيجية الدقيقة المعادية بدقة، مما يفتح أفقًا علاجيًا جديدًا لعلاج الأمراض المزمنة والمناعة الذاتية.',
+        image: '/methood.jpg',
+        imageHint: 'cell targeting',
+        link: "/ip"
+      },
       {
         id: 'cs-02',
         title: 'إعادة هندسة التعافي: مسار جديد لإصابات الحبل الشوكي المزمنة',
@@ -80,6 +98,12 @@ export default function CaseStudiesPage() {
   const { t, language } = useLanguage();
   const T = t(translations);
 
+  const getLinkText = (link: string) => {
+    if (link === '/research') return T.exploreHypothesis;
+    if (link === '/ip') return T.exploreIP;
+    return T.learnMore;
+  };
+
   return (
     <div className="bg-background min-h-screen text-foreground">
       <section className="py-20 md:py-32 pt-32 md:pt-48 bg-secondary/20">
@@ -107,7 +131,7 @@ export default function CaseStudiesPage() {
                     </CardHeader>
                     <CardFooter>
                        <Link href={study.link} className="text-cyan-400 hover:underline flex items-center font-semibold">
-                          {study.link === '/research' ? T.exploreHypothesis : T.learnMore} {language === 'en' && <ArrowRight className="ml-2 h-4 w-4" />}
+                          {getLinkText(study.link)} {language === 'en' && <ArrowRight className="ml-2 h-4 w-4" />}
                        </Link>
                     </CardFooter>
                   </div>
