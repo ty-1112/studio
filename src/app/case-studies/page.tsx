@@ -18,11 +18,11 @@ const translations = {
     studies: [
       {
         id: 'cs-01',
-        title: 'Targeted Modulation of Hostile Tissue Microenvironments',
+        title: 'A System and Method for Targeted Modulation of Hostile Tissue Microenvironments',
         description: 'Our platform has outlined a system and method to precisely alter hostile tissue microenvironments, opening a new therapeutic frontier for treating chronic and autoimmune diseases.',
         image: '/methood.jpg',
         imageHint: 'cell targeting',
-        link: "/ip"
+        link: "/contact"
       },
       {
         id: 'cs-02',
@@ -59,11 +59,11 @@ const translations = {
     studies: [
       {
         id: 'cs-01',
-        title: 'التعديل الموجه للبيئات النسيجية الدقيقة المعادية',
-        description: 'حددت منصتنا نظامًا وطريقة لتغيير البيئات النسيجية الدقيقة المعادية بدقة، مما يفتح أفقًا علاجيًا جديدًا لعلاج الأمراض المزمنة والمناعة الذاتية.',
+        title: 'نظام وطريقة للتعديل الموجه للبيئات الدقيقة للأنسجة المعادية',
+        description: 'حددت منصتنا نظامًا وطريقة لتغيير البيئات الدقيقة للأنسجة المعادية بدقة، مما يفتح أفقًا علاجيًا جديدًا لعلاج الأمراض المزمنة وأمراض المناعة الذاتية.',
         image: '/methood.jpg',
         imageHint: 'cell targeting',
-        link: "/ip"
+        link: "/contact"
       },
       {
         id: 'cs-02',
