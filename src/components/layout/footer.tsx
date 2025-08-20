@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/context/language-context';
 import { useEffect, useState } from 'react';
-import { Twitter } from 'lucide-react';
 
 const translations = {
   en: {
@@ -75,7 +74,9 @@ export function Footer() {
               </div>
               <div className="flex gap-4">
                   <a href="https://x.com/Bugmed_Labs" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors">
-                    <Twitter className="h-5 w-5" />
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                    </svg>
                     <span className="sr-only">X Profile</span>
                   </a>
               </div>
