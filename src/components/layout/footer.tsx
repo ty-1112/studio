@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/context/language-context';
 import { useEffect, useState } from 'react';
+import { Twitter } from 'lucide-react';
 
 const translations = {
   en: {
@@ -62,13 +63,21 @@ export function Footer() {
               <Image src="/logo.png" alt="BugMed Labs Logo" width={24} height={24} className="h-6 w-6 text-primary" data-ai-hint="logo bug" />
               <span className="text-lg font-bold text-primary">BugMed Labs</span>
             </Link>
-            <div>
-              <p className="text-sm text-neutral-400 max-w-xs italic">
-                "{T.bio}"
-              </p>
-               <div className="mt-2">
-                <p className="text-sm font-semibold text-neutral-200">{T.founderName}</p>
-                <p className="text-xs text-neutral-500">{T.ceoFounder}</p>
+            <div className="space-y-4">
+              <div>
+                  <p className="text-sm text-neutral-400 max-w-xs italic">
+                    "{T.bio}"
+                  </p>
+                  <div className="mt-2">
+                    <p className="text-sm font-semibold text-neutral-200">{T.founderName}</p>
+                    <p className="text-xs text-neutral-500">{T.ceoFounder}</p>
+                  </div>
+              </div>
+              <div className="flex gap-4">
+                  <a href="https://x.com/Bugmed_Labs" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors">
+                    <Twitter className="h-5 w-5" />
+                    <span className="sr-only">X Profile</span>
+                  </a>
               </div>
             </div>
           </div>
