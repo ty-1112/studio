@@ -10,6 +10,9 @@ import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   title: 'BugMed Labs - Drugs from Nature & AI',
   description: 'BugMed Labs pioneers the future of biotech, harnessing AI and natural sources like insects for rapid drug discovery, bridging scientific gaps.',
+  icons: {
+    icon: '/logo.png',
+  },
 };
 
 export default function RootLayout({
