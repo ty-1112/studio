@@ -1,7 +1,8 @@
+
 "use client";
 
 import { useLanguage } from '@/context/language-context';
-import { Rocket, TestTube, Handshake, Info } from 'lucide-react';
+import { Rocket, TestTube, Handshake, Info, FileText } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -22,7 +23,10 @@ const translations = {
     venturePartnershipDescription: "Co-develop a full therapeutic program. We bring de-risked, data-driven assets; you bring the scale and expertise to accelerate the path to clinical trials and market entry.",
 
     whyCryptoTitle: "A Note on Funding Mechanisms",
-    whyCryptoDescription: "Our main office is in Yemen, which presents temporary challenges for traditional banking. For strategic venture-level partnerships, we are establishing international corporate structures to facilitate standard investment vehicles. For initial seed-stage contributions to validate specific hypotheses, we can facilitate secure transactions via cryptocurrency following a direct discussion. We appreciate your partnership as we navigate this phase."
+    whyCryptoDescription: "Our main office is in Yemen, which presents temporary challenges for traditional banking. For strategic venture-level partnerships, we are establishing international corporate structures to facilitate standard investment vehicles. For initial seed-stage contributions to validate specific hypotheses, we can facilitate secure transactions via cryptocurrency following a direct discussion. We appreciate your partnership as we navigate this phase.",
+    
+    viewDeck: "View Our Pitch Deck",
+    deckDescription: "For a detailed look at our technology, strategy, and investment opportunity, view our full pitch deck."
   },
   ar: {
     title: "استثمر في مستقبل الطب",
@@ -38,7 +42,10 @@ const translations = {
     venturePartnershipDescription: "شارك في تطوير برنامج علاجي متكامل. نحن نقدم أصولاً مُزالة المخاطر ومدفوعة بالبيانات؛ وأنتم تجلبون الخبرة والنطاق لتسريع المسار نحو التجارب السريرية ودخول السوق.",
 
     whyCryptoTitle: "ملاحظة حول آليات التمويل",
-    whyCryptoDescription: "يقع مكتبنا الرئيسي في اليمن، مما يفرض تحديات مؤقتة على الخدمات المصرفية التقليدية. بالنسبة للشراكات الاستثمارية الاستراتيجية، نعمل على تأسيس هياكل شركات دولية لتسهيل أدوات الاستثمار القياسية. بالنسبة لمساهمات مرحلة التمويل الأولي للتحقق من فرضيات محددة، يمكننا تسهيل المعاملات الآمنة عبر العملات المشفرة بعد إجراء مناقشة مباشرة. نقدر شراكتكم بينما نتجاوز هذه المرحلة."
+    whyCryptoDescription: "يقع مكتبنا الرئيسي في اليمن، مما يفرض تحديات مؤقتة على الخدمات المصرفية التقليدية. بالنسبة للشراكات الاستثمارية الاستراتيجية، نعمل على تأسيس هياكل شركات دولية لتسهيل أدوات الاستثمار القياسية. بالنسبة لمساهمات مرحلة التمويل الأولي للتحقق من فرضيات محددة، يمكننا تسهيل المعاملات الآمنة عبر العملات المشفرة بعد إجراء مناقشة مباشرة. نقدر شراكتكم بينما نتجاوز هذه المرحلة.",
+
+    viewDeck: "عرض ملفنا الاستثماري",
+    deckDescription: "لإلقاء نظرة مفصلة على تقنيتنا واستراتيجيتنا وفرصتنا الاستثمارية، اعرض ملفنا التقديمي الكامل."
   }
 };
 
@@ -64,6 +71,15 @@ export default function InvestPage() {
 
       <section className="pb-20 md:pb-24">
         <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center mb-16 bg-secondary/30 py-10 px-6 rounded-lg max-w-3xl mx-auto border border-cyan-400/20">
+                 <FileText className="h-10 w-10 text-cyan-400 mx-auto mb-4" />
+                 <h2 className="text-3xl font-bold text-cyan-400 mb-2">{T.viewDeck}</h2>
+                 <p className="text-neutral-300 mb-6 max-w-md mx-auto">{T.deckDescription}</p>
+                 <Button asChild size="lg" className="bg-cyan-400 text-background hover:bg-cyan-500">
+                     <Link href="/deck">{T.viewDeck}</Link>
+                 </Button>
+            </div>
+
            <div className="text-center mb-16">
              <h2 className="text-3xl md:text-4xl font-bold text-cyan-400">{T.investmentThesis}</h2>
            </div>
@@ -115,3 +131,5 @@ export default function InvestPage() {
     </div>
   );
 }
+
+    

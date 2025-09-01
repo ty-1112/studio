@@ -24,6 +24,7 @@ const navLinks = {
     { href: '/ip', label: 'IP' },
     { href: '/case-studies', label: 'Case Studies' },
     { href: '/research', label: 'Research' },
+    { href: '/invest', label: 'Invest' },
   ],
   ar: [
     { href: '/', label: 'الرئيسية' },
@@ -31,6 +32,7 @@ const navLinks = {
     { href: '/ip', label: 'الملكية الفكرية' },
     { href: '/case-studies', label: 'دراسات الحالة' },
     { href: '/research', label: 'الأبحاث' },
+    { href: '/invest', label: 'استثمر' },
   ],
 };
 
@@ -74,7 +76,7 @@ export function Header() {
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary",
-                pathname === link.href ? "text-primary" : "text-neutral-400"
+                pathname.startsWith(link.href) && link.href !== '/' || pathname === link.href ? "text-primary" : "text-neutral-400"
               )}
             >
               {link.label}
@@ -83,9 +85,6 @@ export function Header() {
         </nav>
         
         <div className="flex items-center gap-2">
-            <Button asChild size="sm" className="hidden md:flex bg-cyan-400 text-background hover:bg-cyan-500">
-                <Link href="/invest"><DollarSign className="h-4 w-4 mr-2" />{T.invest}</Link>
-            </Button>
             <Button asChild size="sm" className="hidden md:flex bg-primary/20 text-primary hover:bg-primary/30">
                 <Link href="/donate"><Heart className="h-4 w-4 mr-2" />{T.donate}</Link>
             </Button>
@@ -139,20 +138,13 @@ export function Header() {
                           href={link.href}
                           className={cn(
                             "text-xl font-medium transition-colors hover:text-primary",
-                             pathname === link.href ? "text-primary" : "text-neutral-300"
+                             pathname.startsWith(link.href) && link.href !== '/' || pathname === link.href ? "text-primary" : "text-neutral-300"
                           )}
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {link.label}
                         </Link>
                       ))}
-                       <Link
-                          href="/invest"
-                          className="text-xl font-medium text-neutral-300 transition-colors hover:text-primary"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {T.invest}
-                        </Link>
                        <Link
                           href="/donate"
                           className="text-xl font-medium text-neutral-300 transition-colors hover:text-primary"
@@ -177,3 +169,5 @@ export function Header() {
     </header>
   );
 }
+
+    
