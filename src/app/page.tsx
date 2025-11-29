@@ -1,10 +1,12 @@
+
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BrainCircuit, FlaskConical, Bug, ArrowRight, Waypoints, Dna, FileSearch } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { BrainCircuit, FlaskConical, Bug, ArrowRight, Waypoints, Dna, FileSearch, Clock, AlertTriangle, CheckCircle, Telescope } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/language-context';
+import { Badge } from '@/components/ui/badge';
 
 const translations = {
   en: {
@@ -16,6 +18,19 @@ const translations = {
     challengeText: "The path from biological data to a life-saving therapy is incredibly complex and filled with uncertainty. Traditional methods are slow, expensive, and often fail to capture the intricate patterns of disease.",
     ourSolution: "Our Solution: A Hypothesis Generation Engine",
     solutionText: "Our platform navigates this complexity. It integrates multi-modal data to generate novel, testable, and data-driven therapeutic hypotheses, revealing pathways that were previously invisible.",
+    
+    validationTitle: "Historical Validation: Preventing Disaster",
+    validationIntro: "\"If our platform existed in 1957, the Thalidomide tragedy could have been averted.\" This is not just a claim; it's a demonstration of our platform's power.",
+    scenario: "The 1957 Scenario",
+    scenarioText: "We asked our AI to analyze Thalidomide based only on scientific knowledge available in 1957, just before its launch as a 'safe' anti-nausea drug for pregnant women.",
+    aiHypothesis: "AI's Prescient Hypothesis",
+    aiHypothesisText: "The AI predicted Thalidomide could interfere with rapidly dividing cells during embryogenesis, leading to developmental abnormalities, by hypothesizing it acts as a glutamine antagonist.",
+    theReality: "The Tragic Reality",
+    theRealityText: "Years later, Thalidomide caused severe birth defects (phocomelia) in thousands of children, confirming its devastating effect on embryonic development.",
+    theVerdict: "The Verdict",
+    verdictScore: "8/10 Hypothesis Similarity Score",
+    verdictText: "The AI's core hypothesis was remarkably accurate. While the exact molecular target (CRBN) was discovered decades later, the platform correctly identified the risk to embryonic development, proving its ability to see signals that were missed by human experts.",
+    
     uniqueApproach: "A New Discovery Paradigm",
     approachSubtitle: "We are reimagining drug discovery from first principles.",
     naturalBioprospecting: "Deep Biological Insight",
@@ -36,6 +51,19 @@ const translations = {
     challengeText: "إن الطريق من البيانات البيولوجية إلى العلاج المنقذ للحياة معقد للغاية ومليء بالشكوك. الطرق التقليدية بطيئة ومكلفة، وغالبًا ما تفشل في التقاط الأنماط المعقدة للمرض.",
     ourSolution: "حلنا: محرك لتوليد الفرضيات",
     solutionText: "منصتنا تتجاوز هذا التعقيد. إنها تدمج البيانات متعددة الوسائط لتوليد فرضيات علاجية جديدة، قابلة للاختبار، ومدفوعة بالبيانات، كاشفة عن مسارات كانت غير مرئية سابقًا.",
+    
+    validationTitle: "الإثبات التاريخي: منع الكارثة",
+    validationIntro: "\"لو كانت منصتنا موجودة في عام 1957، لكان من الممكن تجنب مأساة الثاليدومايد.\" هذا ليس مجرد ادعاء؛ بل هو إثبات لقوة منصتنا.",
+    scenario: "سيناريو عام 1957",
+    scenarioText: "طلبنا من الذكاء الاصطناعي تحليل دواء الثاليدومايد بناءً فقط على المعرفة العلمية المتاحة في عام 1957، قبل إطلاقه كدواء 'آمن' مضاد للغثيان للنساء الحوامل.",
+    aiHypothesis: "فرضية الذكاء الاصطناعي الاستباقية",
+    aiHypothesisText: "توقع الذكاء الاصطناعي أن الثاليدومايد يمكن أن يتداخل مع الخلايا سريعة الانقسام أثناء التطور الجنيني، مما يؤدي إلى تشوهات في النمو، مفترضًا أنه يعمل كمضاد للجلوتامين.",
+    theReality: "الواقع المأساوي",
+    theRealityText: "بعد سنوات، تسبب الثاليدومايد في تشوهات خلقية حادة (متلازمة الأطراف الفقمية) لآلاف الأطفال، مما أكد تأثيره المدمر على التطور الجنيني.",
+    theVerdict: "الحكم النهائي",
+    verdictScore: "8/10 درجة تشابه الفرضية",
+    verdictText: "كانت الفرضية الأساسية للذكاء الاصطناعي دقيقة بشكل ملحوظ. في حين تم اكتشاف الهدف الجزيئي الدقيق (CRBN) بعد عقود، حددت المنصة بشكل صحيح الخطر على التطور الجنيني، مما يثبت قدرتها على رؤية إشارات أغفلها الخبراء البشر.",
+    
     uniqueApproach: "نموذج اكتشاف جديد",
     approachSubtitle: "نعيد تصور اكتشاف الأدوية من المبادئ الأولى.",
     naturalBioprospecting: "رؤية بيولوجية عميقة",
@@ -106,6 +134,68 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      <section className="py-20 md:py-32 bg-secondary/20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary">{T.validationTitle}</h2>
+            <p className="mt-4 text-lg md:text-xl text-cyan-400/80 max-w-3xl mx-auto italic">
+              {T.validationIntro}
+            </p>
+          </div>
+          <Card className="bg-secondary/50 border-2 border-cyan-400/30 shadow-2xl">
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              <div className="p-6 md:col-span-2 border-b md:border-b-0 md:border-r border-cyan-400/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <Clock className="h-6 w-6 text-cyan-400" />
+                    <span className="text-2xl text-neutral-100">{T.scenario}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-neutral-300">{T.scenarioText}</p>
+                </CardContent>
+              </div>
+              <div className="p-6 bg-cyan-900/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <AlertTriangle className="h-6 w-6 text-amber-400" />
+                    <span className="text-2xl text-neutral-100">{T.theReality}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-amber-200/80">{T.theRealityText}</p>
+                </CardContent>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-cyan-400/20">
+               <div className="p-6 bg-cyan-400/10 md:col-span-2">
+                 <CardHeader>
+                   <CardTitle className="flex items-center gap-3">
+                      <Telescope className="h-6 w-6 text-cyan-300" />
+                     <span className="text-2xl text-cyan-300">{T.aiHypothesis}</span>
+                   </CardTitle>
+                 </CardHeader>
+                 <CardContent>
+                   <p className="text-neutral-200">{T.aiHypothesisText}</p>
+                 </CardContent>
+               </div>
+               <div className="p-6 bg-green-500/10 border-t md:border-t-0 md:border-l border-cyan-400/20">
+                 <CardHeader>
+                   <CardTitle className="flex items-center gap-3">
+                     <CheckCircle className="h-6 w-6 text-green-400" />
+                     <span className="text-2xl text-green-400">{T.theVerdict}</span>
+                   </CardTitle>
+                 </CardHeader>
+                 <CardContent>
+                    <Badge className="bg-green-600/80 text-white mb-4 text-sm">{T.verdictScore}</Badge>
+                   <p className="text-green-200/80">{T.verdictText}</p>
+                 </CardContent>
+               </div>
+            </div>
+          </Card>
+        </div>
+      </section>
 
       <section className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
@@ -173,3 +263,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
