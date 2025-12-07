@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
   webpack: (config, { isServer }) => {
@@ -29,20 +35,6 @@ const nextConfig: NextConfig = {
     }
 
     return config;
-  },
-  // The following turbo object is added to support turbopack
-  turbo: {
-    rules: {
-      '**/*.ts': {
-        loaders: ['ts-loader'],
-        as: '*.js',
-      },
-      // This is the recommended way to resolve issues with server-side rendering of Firebase with turbopack.
-      // It ensures that the admin SDK is not bundled on the client.
-      'node_modules/firebase-admin/lib/index.js': {
-        browser: 'empty',
-      },
-    },
   },
 };
 
