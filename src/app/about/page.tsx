@@ -4,6 +4,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lightbulb, Target, Microscope } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useLanguage } from '@/context/language-context';
 
 const translations = {
@@ -24,7 +25,8 @@ const translations = {
     meetFounder: "Meet Our Founder",
     founderName: "Dr. Tamer Yasser Abdulmughni",
     founderQuoteIntro: "In the name of Allah, the Most Gracious, the Most Merciful. He says: (And of knowledge, you have been given little) Surah Al-Isra, Verse 85.",
-    founderQuote: "\"We start where others get lost. I founded BugMed Labs with the belief that the solutions to our most complex medical problems are hidden within the patterns of biological data. By combining the power of artificial intelligence with human ingenuity, we can create a healthier future for everyone. Our journey is just beginning, and the potential for discovery is limitless.\""
+    founderQuote: "\"We start where others get lost. I founded BugMed Labs with the belief that the solutions to our most complex medical problems are hidden within the patterns of biological data. By combining the power of artificial intelligence with human ingenuity, we can create a healthier future for everyone. Our journey is just beginning, and the potential for discovery is limitless.\"",
+    linkedInProfile: "LinkedIn Profile"
   },
   ar: {
     title: "حول BugMed Labs",
@@ -43,7 +45,8 @@ const translations = {
     meetFounder: "تعرف على مؤسسنا",
     founderName: "د. تامر ياسر عبدالمغني",
     founderQuoteIntro: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ. قَالَ تَعَالَى: (وَمَا أُوتِيتُم مِّنَ الْعِلْمِ إِلَّا قَلِيلًا) سورة الإسراء، الآية 85.",
-    founderQuote: "\"بدأنا من النقطة التي تاه فيها الآخرون. لقد أسست BugMed Labs إيمانًا مني بأن حلول مشاكلنا الطبية الأكثر تعقيدًا مخفية داخل أنماط البيانات البيولوجية. من خلال الجمع بين قوة الذكاء الاصطناعي وبراعة الإنسان، يمكننا خلق مستقبل أكثر صحة للجميع. رحلتنا قد بدأت للتو، وإمكانيات الاكتشاف لا حدود لها.\""
+    founderQuote: "\"بدأنا من النقطة التي تاه فيها الآخرون. لقد أسست BugMed Labs إيمانًا مني بأن حلول مشاكلنا الطبية الأكثر تعقيدًا مخفية داخل أنماط البيانات البيولوجية. من خلال الجمع بين قوة الذكاء الاصطناعي وبراعة الإنسان، يمكننا خلق مستقبل أكثر صحة للجميع. رحلتنا قد بدأت للتو، وإمكانيات الاكتشاف لا حدود لها.\"",
+    linkedInProfile: "ملف LinkedIn"
   }
 };
 
@@ -129,7 +132,14 @@ export default function AboutPage() {
             </div>
             <div className="md:col-span-2 text-center md:text-left">
               <h2 className="text-3xl font-bold text-cyan-400">{T.meetFounder}</h2>
-              <p className="mt-2 text-2xl text-primary font-medium">{T.founderName}</p>
+              <div className="mt-2 flex items-center justify-center md:justify-start gap-4">
+                <p className="text-2xl text-primary font-medium">{T.founderName}</p>
+                <a href="https://www.linkedin.com/in/dr-tamer-yasser-0b35a713a" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-primary transition-colors" aria-label={T.linkedInProfile}>
+                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+              </div>
               <blockquote className="mt-4 text-neutral-300 italic">
                 <p className="mb-4 text-xl font-medium not-italic text-cyan-400/90">{T.founderQuoteIntro}</p>
                 <p>{T.founderQuote}</p>

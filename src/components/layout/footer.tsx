@@ -22,7 +22,9 @@ const translations = {
     address: "Sana'a Taiz.ST south of dar-salm bridge",
     email: "info@bugmedlabs.com",
     rights: "All rights reserved.",
-    founderName: "Dr. Tamer Yasser Abdulmughni"
+    founderName: "Dr. Tamer Yasser Abdulmughni",
+    linkedInProfile: "LinkedIn Profile",
+    xProfile: "X Profile"
   },
   ar: {
     bio: "بدأنا من النقطة التي تاه فيها الآخرون.",
@@ -39,7 +41,9 @@ const translations = {
     address: "Sana'a Taiz.ST south of dar-salm bridge",
     email: "info@bugmedlabs.com",
     rights: "جميع الحقوق محفوظة.",
-    founderName: "د. تامر ياسر عبدالمغني"
+    founderName: "د. تامر ياسر عبدالمغني",
+    linkedInProfile: "ملف LinkedIn",
+    xProfile: "ملف X"
   },
 };
 
@@ -72,12 +76,16 @@ export function Footer() {
                     <p className="text-xs text-neutral-500">{T.ceoFounder}</p>
                   </div>
               </div>
-              <div className="flex gap-4">
-                  <a href="https://x.com/Bugmed_Labs" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors">
+              <div className="flex gap-4 items-center">
+                  <a href="https://x.com/Bugmed_Labs" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors" aria-label={T.xProfile}>
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 16 16">
                       <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
                     </svg>
-                    <span className="sr-only">X Profile</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/dr-tamer-yasser-0b35a713a" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary transition-colors" aria-label={T.linkedInProfile}>
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
                   </a>
               </div>
             </div>
